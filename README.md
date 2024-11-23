@@ -1,1 +1,2 @@
-Criação do Repositório
+Criação do Repositório;
+Criação do projeto;
