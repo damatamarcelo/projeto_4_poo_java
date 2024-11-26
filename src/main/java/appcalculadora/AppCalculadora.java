@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AppCalculadora {
     public static void mostrarMenu() {
-        System.out.println("-----------Seja bem vindo-----------");
+        System.out.println("--------------POWER ON--------------");
         System.out.println("-----Selecione a opção desejada-----");
         System.out.println("|----1 - Soma----------------------|");
         System.out.println("|----2 - Subtração-----------------|");
@@ -58,7 +58,7 @@ public class AppCalculadora {
                         double vlrYSb = input.nextDouble();
 
                         Calculos calcSb = new Calculos(vlrXSb, vlrYSb);
-                        double resultSb = calcSb.soma(vlrXSb, vlrYSb);
+                        double resultSb = calcSb.subtracao(vlrXSb, vlrYSb);
 
                         System.out.println(
                                 "Olá " + nomeSb + ", o resultado de " + vlrXSb + " - " + vlrYSb + " é = " + resultSb);
@@ -80,41 +80,52 @@ public class AppCalculadora {
                                 "Olá " + nomeMt + ", o resultado de " + vlrXMt + " * " + vlrYMt + " é = " + resultMt);
                         break;
                     case 4:
-                        System.out.println("Informe o seu primeiro nome: ");
-                        String nomeDv = input.nextLine().toUpperCase();
+                        try {
+                            System.out.println("Informe o seu primeiro nome: ");
+                            String nomeDv = input.nextLine().toUpperCase();
 
-                        System.out.println("Informe o primeiro número: ");
-                        double vlrXDv = input.nextDouble();
+                            System.out.println("Informe o primeiro número: ");
+                            double vlrXDv = input.nextDouble();
 
-                        System.out.println("Informe o segundo número: ");
-                        double vlrYDv = input.nextDouble();
+                            System.out.println("Informe o segundo número: ");
+                            double vlrYDv = input.nextDouble();
 
-                        Calculos calcDv = new Calculos(vlrXDv, vlrYDv);
-                        double resultDv = calcDv.divisao(vlrXDv, vlrYDv);
+                            Calculos calcDv = new Calculos(vlrXDv, vlrYDv);
+                            double resultDv = calcDv.divisao(vlrXDv, vlrYDv);
 
-                        System.out.println(
-                                "Olá " + nomeDv + ", o resultado de " + vlrXDv + " / " + vlrYDv + " é = " + resultDv);
+                            System.out.println(
+                                    "Olá " + nomeDv + ", o resultado de " + vlrXDv + " / " + vlrYDv + " é = "
+                                            + resultDv);
+                        } catch (ArithmeticException e) {
+                            System.out.println("Erro na divisão: " + e.getMessage());
+                        }
                         break;
                     case 5:
-                        System.out.println("Informe o seu primeiro nome: ");
-                        String nomeSq = input.nextLine().toUpperCase();
+                        try {
+                            System.out.println("Informe o seu primeiro nome: ");
+                            String nomeSq = input.nextLine().toUpperCase();
 
-                        System.out.println("Informe o número que deseja obter a raiz quadrada: ");
-                        double vlrXSq = input.nextDouble();
+                            System.out.println("Informe o número que deseja obter a raiz quadrada: ");
+                            double vlrXSq = input.nextDouble();
 
-                        Calculos calcSq = new Calculos(vlrXSq, 0);
-                        double resultSq = calcSq.radiciacao(vlrXSq);
+                            Calculos calcSq = new Calculos(vlrXSq, 0);
+                            double resultSq = calcSq.radiciacao(vlrXSq);
 
-                        System.out.println("Olá, " + nomeSq + ", a raiz quadrada de " + vlrXSq + " é = " + resultSq);
+                            System.out
+                                    .println("Olá, " + nomeSq + ", a raiz quadrada de " + vlrXSq + " é = " + resultSq);
+                        } catch (ArithmeticException e) {
+                            System.out.println("Erro no cálculo: " + e.getMessage());
+                        }
                         break;
                     case 0:
-                        System.out.println("Saindo...");
+                        System.out.println("OFF");
+                        break;
                     default:
                         System.out.println("Operação inválida! Tente novamente.");
                         mostrarMenu();
                 }
-            } while (opcao == 0);
-            System.exit(0);
+            } while (opcao != 0);
+            System.exit(9);
         }
     }
 

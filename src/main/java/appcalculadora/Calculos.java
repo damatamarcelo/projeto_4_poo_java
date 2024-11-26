@@ -1,9 +1,9 @@
 package appcalculadora;
 
-public class Calculos {   
+public class Calculos {
     private double x = 0.0;
     private double y = 0.0;
-    
+
     public Calculos(double x, double y) {
 
     }
@@ -42,22 +42,20 @@ public class Calculos {
         return getX();
     }
 
-    public double divisao(double x, double y) {
+    public double divisao(double x, double y) throws ArithmeticException {
         if (y == 0) {
-            System.out.println("Não é possível dividir um número por 0!");
-        } else {
-            setX(x / y);
+            throw new ArithmeticException("Divisão por Zero não é permitida.");
         }
+        setX(x / y);
 
         return getX();
     }
 
-    public double radiciacao(double x) {
+    public double radiciacao(double x) throws ArithmeticException {
         if (x < 0) {
-            System.out.println("Não é possível obter a raiz quafrafa de um número negativo.");
-        } else {
-            setX(Math.sqrt(x));
+            throw new ArithmeticException("Não é possível calcular a raiz quadrada de um número negativo.");
         }
+        setX(Math.sqrt(x));
 
         return getX();
     }
