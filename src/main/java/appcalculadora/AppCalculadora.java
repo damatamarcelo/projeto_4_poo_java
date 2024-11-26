@@ -96,7 +96,16 @@ public class AppCalculadora {
                                 "Olá " + nomeDv + ", o resultado de " + vlrXDv + " / " + vlrYDv + " é = " + resultDv);
                         break;
                     case 5:
-                        
+                        System.out.println("Informe o seu primeiro nome: ");
+                        String nomeSq = input.nextLine().toUpperCase();
+
+                        System.out.println("Informe o número que deseja obter a raiz quadrada: ");
+                        double vlrXSq = input.nextDouble();
+
+                        Calculos calcSq = new Calculos(vlrXSq, 0);
+                        double resultSq = calcSq.radiciacao(vlrXSq);
+
+                        System.out.println("Olá, " + nomeSq + ", a raiz quadrada de " + vlrXSq + " é = " + resultSq);
                         break;
                     case 0:
                         System.out.println("Saindo...");
